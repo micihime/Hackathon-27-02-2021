@@ -41,21 +41,18 @@ namespace TravelGreen.Controllers
             }
 
             var transportTypes = db.TransportTypes;
-
             DateTime date = DateTime.Now.AddDays(-period);
-
             var summaries = new List<Summary>();
-
             
             foreach (var transportType in transportTypes)
             {
                 var entries = db.Entries.Where(x => x.TransportTypeId == transportType.ID).ToList();
                 if ((entries != null) || (entries.Count > 0))
                 {
-                    var footprint = db.Entries
+                    var footprint = entries
                             .Where(x => x.Date <= date)
                             .Sum(x => x.Footprint);
-                    var minutes = db.Entries
+                    var minutes = entries
                                 .Where(x => x.Date <= date)
                                 .Sum(x => x.Minutes);
 

@@ -24,12 +24,12 @@ namespace TravelGreen.Controllers
             DateTime date = DateTime.Now.AddDays(-30);
 
             var entries = db.Entries.Where(x => x.Date <= date).ToList();
-                
             var dashboard = new Dashboard();
-
-            dashboard.Last30DaysFootprint = entries.Sum(x => x.Footprint);
-            dashboard.Insight = "Dnes sa ti podarilo zachrániť 1 strom!";
-
+            if ((entries != null) || (entries.Count > 0))
+            {
+                dashboard.Last30DaysFootprint = entries.Sum(x => x.Footprint);
+                dashboard.Insight = "Dnes sa ti podarilo zachrániť 1 strom!";
+            }
             return dashboard;
         }
 
