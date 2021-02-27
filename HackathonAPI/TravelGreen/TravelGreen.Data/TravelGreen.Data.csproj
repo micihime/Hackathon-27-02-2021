@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\TransportType.cs" />
+    <Compile Include="Enums\TransportEnum.cs" />
     <Compile Include="Migrations\202102271214221_InitialCreate.cs" />
     <Compile Include="Migrations\202102271214221_InitialCreate.designer.cs">
       <DependentUpon>202102271214221_InitialCreate.cs</DependentUpon>
