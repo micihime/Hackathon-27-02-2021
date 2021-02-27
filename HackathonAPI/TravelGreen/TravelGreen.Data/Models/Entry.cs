@@ -10,8 +10,12 @@ namespace TravelGreen.Data.Models
         
         public DateTime Date { get; set; }
 
-        public TransportType Transport { get; set; }
+        public int TransportTypeId { get; set; }
+        public TransportType TransportType { get; set; }
 
         public int Minutes { get; set; }
+
+        public double Footprint { get; set; }
+
     }
 }

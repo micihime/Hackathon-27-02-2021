@@ -117,9 +117,18 @@
             context.TransportFootprintValues.AddOrUpdate(
                  new Models.TransportFootprintValue()
                  {
+                     TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Rail.ToString()).FirstOrDefault(),
+                     FootprintPerKm = 50,
+                     FootprintPerMin = 75 //avg speed 80km/h
+                 }
+            );
+
+            context.TransportFootprintValues.AddOrUpdate(
+                 new Models.TransportFootprintValue()
+                 {
                      TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Tram.ToString()).FirstOrDefault(),
-                     FootprintPerKm = 0,
-                     FootprintPerMin = 0 
+                     FootprintPerKm = 50,
+                     FootprintPerMin = 75 //avg speed 80km/h                 
                  }
             );
 
@@ -127,8 +136,8 @@
                  new Models.TransportFootprintValue()
                  {
                      TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Metro.ToString()).FirstOrDefault(),
-                     FootprintPerKm = 0,
-                     FootprintPerMin = 0
+                     FootprintPerKm = 50,
+                     FootprintPerMin = 75 //avg speed 80km/h
                  }
             );
 
