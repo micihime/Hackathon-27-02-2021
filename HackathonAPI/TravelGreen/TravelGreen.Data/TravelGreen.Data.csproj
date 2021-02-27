@@ -68,6 +68,10 @@
     <Compile Include="Migrations\202102271457470_ModifyEntity2.designer.cs">
       <DependentUpon>202102271457470_ModifyEntity2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102271534475_ModifyEntity3.cs" />
+    <Compile Include="Migrations\202102271534475_ModifyEntity3.designer.cs">
+      <DependentUpon>202102271534475_ModifyEntity3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\PeriodType.cs" />
@@ -92,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102271457470_ModifyEntity2.resx">
       <DependentUpon>202102271457470_ModifyEntity2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102271534475_ModifyEntity3.resx">
+      <DependentUpon>202102271534475_ModifyEntity3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

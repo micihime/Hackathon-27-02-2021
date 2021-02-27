@@ -45,7 +45,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                 new Models.TransportFootprintValue()
                 {
-                    TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.OnFoot.ToString()).FirstOrDefault(),
+                   TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.OnFoot.ToString()).FirstOrDefault().ID,
                     FootprintPerKm = 0,
                     FootprintPerMin = 0
                 }
@@ -54,7 +54,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                 new Models.TransportFootprintValue()
                 {
-                    TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Bicycle.ToString()).FirstOrDefault(),
+                   TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.Bicycle.ToString()).FirstOrDefault().ID,
                     FootprintPerKm = 0,
                     FootprintPerMin = 0
                 }
@@ -63,7 +63,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                  new Models.TransportFootprintValue()
                  {
-                     TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Car.ToString()).FirstOrDefault(),
+                    TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.Car.ToString()).FirstOrDefault().ID,
                      FootprintPerKm = 150,
                      FootprintPerMin = 225 //avg speed 80km/h
                  }
@@ -72,7 +72,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                  new Models.TransportFootprintValue()
                  {
-                     TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.ElectricCar.ToString()).FirstOrDefault(),
+                    TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.ElectricCar.ToString()).FirstOrDefault().ID,
                      FootprintPerKm = 50,
                      FootprintPerMin = 75 //avg speed 80km/h
                  }
@@ -81,7 +81,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                  new Models.TransportFootprintValue()
                  {
-                     TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Motorcycle.ToString()).FirstOrDefault(),
+                    TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.Motorcycle.ToString()).FirstOrDefault().ID,
                      FootprintPerKm = 100,
                      FootprintPerMin = 180 //avg speed 100km/h
                  }
@@ -90,7 +90,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                  new Models.TransportFootprintValue()
                  {
-                     TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Scooter.ToString()).FirstOrDefault(),
+                    TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.Scooter.ToString()).FirstOrDefault().ID,
                      FootprintPerKm = 0,
                      FootprintPerMin = 0
                  }
@@ -99,7 +99,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                  new Models.TransportFootprintValue()
                  {
-                     TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.ElectricScooter.ToString()).FirstOrDefault(),
+                    TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.ElectricScooter.ToString()).FirstOrDefault().ID,
                      FootprintPerKm = 120,
                      FootprintPerMin = 25
                  }
@@ -108,7 +108,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                  new Models.TransportFootprintValue()
                  {
-                     TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Bus.ToString()).FirstOrDefault(),
+                    TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.Bus.ToString()).FirstOrDefault().ID,
                      FootprintPerKm = 105,
                      FootprintPerMin = 157 //avg speed 80km/h
                  }
@@ -117,7 +117,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                  new Models.TransportFootprintValue()
                  {
-                     TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Rail.ToString()).FirstOrDefault(),
+                    TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.Rail.ToString()).FirstOrDefault().ID,
                      FootprintPerKm = 50,
                      FootprintPerMin = 75 //avg speed 80km/h
                  }
@@ -126,7 +126,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                  new Models.TransportFootprintValue()
                  {
-                     TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Tram.ToString()).FirstOrDefault(),
+                    TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.Tram.ToString()).FirstOrDefault().ID,
                      FootprintPerKm = 50,
                      FootprintPerMin = 75 //avg speed 80km/h                 
                  }
@@ -135,7 +135,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                  new Models.TransportFootprintValue()
                  {
-                     TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Metro.ToString()).FirstOrDefault(),
+                    TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.Metro.ToString()).FirstOrDefault().ID,
                      FootprintPerKm = 50,
                      FootprintPerMin = 75 //avg speed 80km/h
                  }
@@ -144,7 +144,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                  new Models.TransportFootprintValue()
                  {
-                     TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Taxi.ToString()).FirstOrDefault(),
+                    TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.Taxi.ToString()).FirstOrDefault().ID,
                      FootprintPerKm = 150,
                      FootprintPerMin = 225 //avg speed 80km/h
                  }
@@ -153,7 +153,7 @@
             context.TransportFootprintValues.AddOrUpdate(
                  new Models.TransportFootprintValue()
                  {
-                     TransportType = context.TransportTypes.Where(x => x.Name == TransportEnum.Airplane.ToString()).FirstOrDefault(),
+                    TransportTypeId = context.TransportTypes.Where(x => x.Name == TransportEnum.Airplane.ToString()).FirstOrDefault().ID,
                      FootprintPerKm = 200,
                      FootprintPerMin = 3000 //900km/h - 15km/min
                  }

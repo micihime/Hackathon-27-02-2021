@@ -5,7 +5,6 @@
         public int ID { get; set; }
 
         public int TransportTypeId { get; set; }
-        public TransportType TransportType { get; set; }
 
         public int FootprintPerKm { get; set; }
 
