@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using TravelGreen.ApiModels;
 using TravelGreen.Data;
 using TravelGreen.Data.Models;
 
@@ -18,9 +19,18 @@ namespace TravelGreen.Controllers
         private TravelGreenDbContext db = new TravelGreenDbContext();
 
         // GET: api/Entries
-        public IQueryable<Entry> GetEntries()
+        public Dashboard Get()
         {
-            return db.Entries;
+            DateTime date = DateTime.Now.AddDays(-30);
+
+            var entries = db.Entries.Where(x => x.Date <= date).ToList();
+                
+            var dashboard = new Dashboard();
+
+            dashboard.Last30DaysFootprint = entries.Sum(x => x.Footprint);
+            dashboard.Insight = "Dnes sa ti podarilo zachrániť 1 strom!";
+
+            return dashboard;
         }
 
         // GET: api/Entries/5

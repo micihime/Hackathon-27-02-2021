@@ -5,7 +5,6 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using TravelGreen.ApiModels;
 using TravelGreen.Data;
-using TravelGreen.Data.Enums;
 using TravelGreen.Data.Models;
 
 namespace TravelGreen.Controllers
@@ -14,21 +13,18 @@ namespace TravelGreen.Controllers
     {
         private TravelGreenDbContext db = new TravelGreenDbContext();
 
-        // GET: api/Entries
-        public IQueryable<Entry> GetEntries()
-        {
-            return db.Entries;
-        }
-
         // GET api/values
         public Dashboard Get()
         {
-            var dashboard = new Dashboard();
-            dashboard.Last30DaysFootprint = db.Entries
-                .Where(x => x.Date <= DateTime.Now.AddDays(-30))
-                .Sum(x => x.Footprint);
-            dashboard.Insight = "Dnes sa ti podarilo zachrániť 1 strom!";
+            DateTime date = DateTime.Now.AddDays(-30);
 
+            var entries = db.Entries.Where(x => x.Date <= date).ToList();
+            var dashboard = new Dashboard();
+            if ((entries != null) || (entries.Count > 0))
+            {
+                dashboard.Last30DaysFootprint = entries.Sum(x => x.Footprint);
+                dashboard.Insight = "Dnes sa ti podarilo zachrániť 1 strom!";
+            }
             return dashboard;
         }
 
