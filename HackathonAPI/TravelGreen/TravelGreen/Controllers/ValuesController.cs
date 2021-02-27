@@ -22,27 +22,27 @@ namespace TravelGreen.Controllers
             return dashboard;
         }
 
-        // GET api/values
-        public List<Summary> GetSummary(int period)
-        {
-            //call method that computes summary from specified time period
-            var summaries = new List<Summary>()
-                {
-                    new Summary { Transport = TransportType.Car, Minutes = 1500, FootprintSum = 169},
-                    new Summary { Transport = TransportType.Bus, Minutes = 237, FootprintSum = 24}
-            };
-            return summaries;
-        }
+        //// GET api/values
+        //public List<Summary> GetSummary(int period)
+        //{
+        //    //call method that computes summary from specified time period
+        //    var summaries = new List<Summary>()
+        //        {
+        //            new Summary { Transport = TransportType.Car, Minutes = 1500, FootprintSum = 169},
+        //            new Summary { Transport = TransportType.Bus, Minutes = 237, FootprintSum = 24}
+        //    };
+        //    return summaries;
+        //}
 
-        // GET api/values/5
-        [HttpPost]
-        public IHttpActionResult Post([FromBody] Entry entry)
-        {
-            if (entry == null)
-                return BadRequest("Entry null.");
-            else
-                //save
-                return Ok();
-        }
+        //// GET api/values/5
+        //[HttpPost]
+        //public IHttpActionResult Post([FromBody] Entry entry)
+        //{
+        //    if (entry == null)
+        //        return BadRequest("Entry null.");
+        //    else
+        //        //save
+        //        return Ok();
+        //}
     }
 }
