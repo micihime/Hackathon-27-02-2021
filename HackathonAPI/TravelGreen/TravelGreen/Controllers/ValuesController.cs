@@ -1,39 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
+using TravelGreen.Models;
 
 namespace TravelGreen.Controllers
 {
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public Dashboard GetDashboard()
         {
-            return new string[] { "value1", "value2" };
+            var dashboard = new Dashboard()
+            {
+                AverageMonthlyFootprint = 100,
+                Summaries = new List<Summary>()
+                {
+                    new Summary { Transport = TransportType.Car, Minutes = 1500, FootprintSum = 169},
+                    new Summary { Transport = TransportType.Bus, Minutes = 237, FootprintSum = 24}
+                },
+                Insight = "Hlaska porovnanie oproti min mesiacu"
+            };
+            return dashboard;
+        }
+
+        // GET api/values
+        public List<Summary> GetSummary(int period)
+        {
+            //call method that computes summary from specified time period
+            var summaries = new List<Summary>()
+                {
+                    new Summary { Transport = TransportType.Car, Minutes = 1500, FootprintSum = 169},
+                    new Summary { Transport = TransportType.Bus, Minutes = 237, FootprintSum = 24}
+            };
+            return summaries;
         }
 
         // GET api/values/5
-        public string Get(int id)
+        [HttpPost]
+        public IHttpActionResult Post([FromBody] Entry entry)
         {
-            return "value";
-        }
-
-        // POST api/values
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
+            if (entry == null)
+                return BadRequest("Entry null.");
+            else
+                //save
+                return Ok();
         }
     }
 }
