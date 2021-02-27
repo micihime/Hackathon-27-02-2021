@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace TravelGreen.Models
+﻿namespace TravelGreen.Models
 {
     public enum Period
     {
