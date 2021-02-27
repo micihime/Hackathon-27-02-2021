@@ -133,7 +133,6 @@
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\Period.cs" />
     <Compile Include="Models\Summary.cs" />
-    <Compile Include="Models\TransportType.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -264,6 +263,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TravelGreen.Data\TravelGreen.Data.csproj">
+      <Project>{fd32e6b9-af64-47d4-aecd-6cba274cc6c5}</Project>
+      <Name>TravelGreen.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TravelGreen.Service\TravelGreen.Service.csproj">
+      <Project>{3a89adbb-e47a-4744-9bc5-9ba1c0ebabfa}</Project>
+      <Name>TravelGreen.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -51,12 +51,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Enums\TransportType.cs" />
+    <Compile Include="Migrations\202102271214221_InitialCreate.cs" />
+    <Compile Include="Migrations\202102271214221_InitialCreate.designer.cs">
+      <DependentUpon>202102271214221_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102271317389_ModifyTransportTypeName.cs" />
+    <Compile Include="Migrations\202102271317389_ModifyTransportTypeName.designer.cs">
+      <DependentUpon>202102271317389_ModifyTransportTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Entry.cs" />
+    <Compile Include="Models\PeriodType.cs" />
+    <Compile Include="Models\TransportFootprintValue.cs" />
+    <Compile Include="Models\TransportType.cs" />
+    <Compile Include="TravelGreenDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202102271214221_InitialCreate.resx">
+      <DependentUpon>202102271214221_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102271317389_ModifyTransportTypeName.resx">
+      <DependentUpon>202102271317389_ModifyTransportTypeName.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
