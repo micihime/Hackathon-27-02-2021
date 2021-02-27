@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace TravelGreen.Models
 {
@@ -9,7 +6,7 @@ namespace TravelGreen.Models
     {
         public double AverageMonthlyFootprint { get; set; }
 
-        public double LastMonthAverage { get; set; }
+        //public double LastMonthAverage { get; set; } //does not have to be displayed
 
         public List<Summary> Summaries { get; set; }
 
