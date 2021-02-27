@@ -40,7 +40,7 @@ namespace TravelGreen.Controllers
                 default: period = 1; break;
             }
 
-            var transportTypes = db.TransportTypes;
+            var transportTypes = db.TransportTypes.ToList();
             DateTime date = DateTime.Now.AddDays(-period);
             var summaries = new List<Summary>();
             
