@@ -2,7 +2,7 @@
 {
     public class Entry
     {
-        public long ID { get; set; }
+        //public long ID { get; set; }
 
         public TransportType Transport { get; set; }
 

@@ -34,15 +34,15 @@ namespace TravelGreen.Controllers
         //    return summaries;
         //}
 
-        //// GET api/values/5
-        //[HttpPost]
-        //public IHttpActionResult Post([FromBody] Entry entry)
-        //{
-        //    if (entry == null)
-        //        return BadRequest("Entry null.");
-        //    else
-        //        //save
-        //        return Ok();
-        //}
+        // GET api/values/5
+        [HttpPost]
+        public IHttpActionResult Post([FromBody] Entry entry)
+        {
+            if (entry == null)
+                return BadRequest("Entry null.");
+            else
+                //save
+                return Ok();
+        }
     }
 }
