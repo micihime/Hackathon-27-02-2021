@@ -60,6 +60,10 @@
     <Compile Include="Migrations\202102271317389_ModifyTransportTypeName.designer.cs">
       <DependentUpon>202102271317389_ModifyTransportTypeName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102271441538_ModifyEntity.cs" />
+    <Compile Include="Migrations\202102271441538_ModifyEntity.designer.cs">
+      <DependentUpon>202102271441538_ModifyEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\PeriodType.cs" />
@@ -78,6 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102271317389_ModifyTransportTypeName.resx">
       <DependentUpon>202102271317389_ModifyTransportTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102271441538_ModifyEntity.resx">
+      <DependentUpon>202102271441538_ModifyEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
