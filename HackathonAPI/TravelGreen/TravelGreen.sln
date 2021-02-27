@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelGreen", "TravelGreen\TravelGreen.csproj", "{5F51F0E1-4986-49B1-A522-6E614C9BC74A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelGreen.Data", "TravelGreen.Data\TravelGreen.Data.csproj", "{FD32E6B9-AF64-47D4-AECD-6CBA274CC6C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelGreen.Service", "TravelGreen.Service\TravelGreen.Service.csproj", "{3A89ADBB-E47A-4744-9BC5-9BA1C0EBABFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{5F51F0E1-4986-49B1-A522-6E614C9BC74A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F51F0E1-4986-49B1-A522-6E614C9BC74A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F51F0E1-4986-49B1-A522-6E614C9BC74A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD32E6B9-AF64-47D4-AECD-6CBA274CC6C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD32E6B9-AF64-47D4-AECD-6CBA274CC6C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD32E6B9-AF64-47D4-AECD-6CBA274CC6C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD32E6B9-AF64-47D4-AECD-6CBA274CC6C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A89ADBB-E47A-4744-9BC5-9BA1C0EBABFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A89ADBB-E47A-4744-9BC5-9BA1C0EBABFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A89ADBB-E47A-4744-9BC5-9BA1C0EBABFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A89ADBB-E47A-4744-9BC5-9BA1C0EBABFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

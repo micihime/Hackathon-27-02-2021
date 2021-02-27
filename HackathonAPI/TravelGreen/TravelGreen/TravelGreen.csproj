@@ -179,6 +179,7 @@
     <Compile Include="ApiModels\Summary.cs" />
     <Compile Include="ApiModels\TransportType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\TransportService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
