@@ -129,6 +129,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Dashboard.cs" />
+    <Compile Include="Models\Entry.cs" />
+    <Compile Include="Models\Period.cs" />
+    <Compile Include="Models\Summary.cs" />
+    <Compile Include="Models\TransportType.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -168,11 +173,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Dashboard.cs" />
-    <Compile Include="Models\Entry.cs" />
-    <Compile Include="Models\Period.cs" />
-    <Compile Include="Models\Summary.cs" />
-    <Compile Include="Models\TransportType.cs" />
+    <Compile Include="ApiModels\Dashboard.cs" />
+    <Compile Include="ApiModels\Entry.cs" />
+    <Compile Include="ApiModels\Period.cs" />
+    <Compile Include="ApiModels\Summary.cs" />
+    <Compile Include="ApiModels\TransportType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
