@@ -2,48 +2,47 @@
 using System.Web.Http;
 using TravelGreen.Data.Enums;
 using TravelGreen.ApiModels;
+using TravelGreen.Data;
+using System.Linq;
+using System;
+using TravelGreen.Data.Models;
 
 namespace TravelGreen.Controllers
 {
     public class ValuesController : ApiController
     {
-        // GET api/values
-        //public Dashboard GetDashboard()
-        //{
-        //    var dashboard = new Dashboard()
-        //    {
-        //        AverageMonthlyFootprint = 100,
-        //        Summaries = new List<Summary>()
-        //        {
-        //            new Summary { Transport = TransportEnum.Car, Minutes = 1500, FootprintSum = 169},
-        //            new Summary { Transport = TransportEnum.Bus, Minutes = 237, FootprintSum = 24}
-        //        },
-        //        Insight = "Hlaska porovnanie oproti min mesiacu"
-        //    };
-        //    return dashboard;
-        //}
+        private TravelGreenDbContext db = new TravelGreenDbContext();
 
-        //// GET api/values/5
-        //public List<Summary> Get(int id)
-        //{
-        //    //call method that computes summary from specified time period
-        //    var summaries = new List<Summary>()
-        //            {
-        //                new Summary { Transport = TransportEnum.Car, Minutes = 1500, FootprintSum = 169},
-        //                new Summary { Transport = TransportEnum.Bus, Minutes = 237, FootprintSum = 24}
-        //        };
-        //    return summaries;
-        //}
-
-        // GET api/values/5
-        [HttpPost]
-        public IHttpActionResult Post([FromBody] Data.Models.Entry entry)
+        // GET: api/Entries
+        public IQueryable<Entry> GetEntries()
         {
-            if (entry == null)
-                return BadRequest("Entry null.");
-            else
-                //save
-                return Ok();
+            return db.Entries;
+        }
+
+        public Dashboard Get()
+        {
+            DateTime date = DateTime.Now.AddDays(-30);
+            var dashboard = new Dashboard();
+            dashboard.Last30DaysFootprint = db.Entries
+                .Where(x => x.Date <= date)
+                .Sum(x => x.Footprint);
+            dashboard.Insight = "Dnes sa ti podarilo zachrániť 1 strom!";
+
+            return dashboard;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private bool EntryExists(int id)
+        {
+            return db.Entries.Count(e => e.ID == id) > 0;
         }
     }
 }

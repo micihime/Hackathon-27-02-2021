@@ -27,7 +27,7 @@ namespace TravelGreen.Controllers
             dashboard.Last30DaysFootprint = db.Entries
                 .Where(x => x.Date <= DateTime.Now.AddDays(-30))
                 .Sum(x => x.Footprint);
-            dashboard.Insight = "test";
+            dashboard.Insight = "Dnes sa ti podarilo zachrániť 1 strom!";
 
             return dashboard;
         }
@@ -46,21 +46,32 @@ namespace TravelGreen.Controllers
 
             var transportTypes = db.TransportTypes;
 
+            DateTime date = DateTime.Now.AddDays(-period);
+
             var summaries = new List<Summary>();
+
+            
             foreach (var transportType in transportTypes)
             {
-                var summary = new Summary()
+                var entries = db.Entries.Where(x => x.TransportTypeId == transportType.ID).ToList();
+                if ((entries != null) || (entries.Count > 0))
                 {
-                    TransportType = transportType.ID,
-                    Minutes = db.Entries
-                        .Where(x => x.Date <= DateTime.Now.AddDays(-period))
-                        .Sum(x => x.Minutes),
-                    FootprintSum = db.Entries
-                        .Where(x => x.Date <= DateTime.Now.AddDays(-period))
-                        .Sum(x => x.Footprint)
-                };
-                if ((summary.Minutes != 0) || (summary.FootprintSum != 0))
+                    var footprint = db.Entries
+                            .Where(x => x.Date <= date)
+                            .Sum(x => x.Footprint);
+                    var minutes = db.Entries
+                                .Where(x => x.Date <= date)
+                                .Sum(x => x.Minutes);
+
+                    var summary = new Summary()
+                    {
+                        TransportType = transportType.ID,
+                        Minutes = minutes,
+                        FootprintSum = footprint
+                    };
+
                     summaries.Add(summary);
+                }
             };
             
             return summaries;
