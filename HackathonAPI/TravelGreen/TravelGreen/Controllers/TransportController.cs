@@ -21,27 +21,48 @@ namespace TravelGreen.Controllers
         }
 
         // GET api/values
-        public Dashboard GetDashboard()
+        public Dashboard Get()
         {
             var dashboard = new Dashboard();
             dashboard.Last30DaysFootprint = db.Entries
                 .Where(x => x.Date <= DateTime.Now.AddDays(-30))
                 .Sum(x => x.Footprint);
             dashboard.Insight = "test";
-            
+
             return dashboard;
         }
 
         // GET api/values/5
         public List<Summary> Get(int id)
         {
-            //call method that computes summary from specified time period
-            var summaries = new List<Summary>()
-                //    {
-                //        new Summary { Transport = TransportEnum.Car, Minutes = 1500, FootprintSum = 169},
-                //        new Summary { Transport = TransportEnum.Bus, Minutes = 237, FootprintSum = 24}
-                //}
-            ;
+            int period;
+            switch (id)
+            {
+                case 2: period = 7; break;
+                case 3: period = 30; break;
+                case 4: period = 365; break;
+                default: period = 1; break;
+            }
+
+            var transportTypes = db.TransportTypes;
+
+            var summaries = new List<Summary>();
+            foreach (var transportType in transportTypes)
+            {
+                var summary = new Summary()
+                {
+                    TransportType = transportType.ID,
+                    Minutes = db.Entries
+                        .Where(x => x.Date <= DateTime.Now.AddDays(-period))
+                        .Sum(x => x.Minutes),
+                    FootprintSum = db.Entries
+                        .Where(x => x.Date <= DateTime.Now.AddDays(-period))
+                        .Sum(x => x.Footprint)
+                };
+                if ((summary.Minutes != 0) || (summary.FootprintSum != 0))
+                    summaries.Add(summary);
+            };
+            
             return summaries;
         }
 
@@ -53,12 +74,19 @@ namespace TravelGreen.Controllers
             {
                 return BadRequest(ModelState);
             }
+            //var transportType = db.TransportTypes.Where(x => x.ID == entry.TransportType).FirstOrDefault();
+            var footprintValue = db.TransportFootprintValues.Where(x => x.TransportTypeId == entry.TransportType).FirstOrDefault();
+            if (footprintValue == null)
+            {
+                return BadRequest("Transport type not found.");
+            }
 
             var dbEntry = new Entry()
             {
                 Date = entry.Date,
                 Minutes = entry.Minutes,
-                TransportTypeId = entry.TransportType
+                TransportTypeId = entry.TransportType,
+                Footprint = entry.Minutes * footprintValue.FootprintPerMin
             };
 
             db.Entries.Add(dbEntry);
